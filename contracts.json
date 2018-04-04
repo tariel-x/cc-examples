@@ -1,0 +1,58 @@
+[
+    {
+        "schemes": [
+            {
+                "in": true,
+                "scheme": {
+                    "properties": {
+                        "data": {
+                            "type": "string"
+                        },
+                        "time": {
+                            "type": "integer"
+                        }
+                    },
+                    "type": "object"
+                },
+                "type": "json-schema"
+            }
+        ],
+        "services": [
+            {
+                "address": {
+                    "ex": "test",
+                    "rk": "test.rk"
+                },
+                "check_url": "http://localhost:8881/provider.json",
+                "name": "provider"
+            }
+        ],
+        "usages": []
+    },
+    {
+        "schemes": [
+            {
+                "in": true,
+                "scheme": {
+                    "properties": {
+                        "random": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "type": "json-schema"
+            }
+        ],
+        "services": [
+            {
+                "address": {
+                    "endpoint": "http://localhost:8880"
+                },
+                "check_url": "http://localhost:8881/provider.json",
+                "name": "provider"
+            }
+        ],
+        "usages": []
+    }
+]
