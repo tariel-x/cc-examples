@@ -52,6 +52,7 @@ print(' [*] Waiting for logs. To exit press CTRL+C')
 
 def callback(ch, method, properties, body):
     print(" [x] %r:%r" % (method.routing_key, body))
+    r = requests.post(ep, data=str(body))
 
 channel.basic_consume(callback,
                       queue=queue_name,
