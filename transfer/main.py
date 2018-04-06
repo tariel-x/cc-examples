@@ -24,6 +24,11 @@ print("found server")
 
 ep = reply['result'][0]['services'][0]['address']['endpoint']
 
+f = open('usage.json')
+query = f.read()
+print(query)
+requests.post(sys.argv[1], data=query)
+
 # Register service
 
 f = open('contract.json')

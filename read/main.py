@@ -14,7 +14,7 @@ reply = {
 while len(reply['result']) == 0:
     r = requests.post(sys.argv[1], data=query)
 
-    reply = json.loads(r.content.decode("utf-8") )
+    reply = json.loads(r.content.decode("utf-8"))
     print(reply)
     if len(reply['result']) == 0:
         print("contract not found")
@@ -24,6 +24,12 @@ print("found server")
 
 rk = reply['result'][0]['services'][0]['address']['rk']
 ex = reply['result'][0]['services'][0]['address']['ex']
+
+f = open('usage.json')
+query = f.read()
+requests.post(sys.argv[1], data=query)
+
+print("registered usage")
 
 credentials = pika.PlainCredentials('guest', 'guest')
 parameters = pika.ConnectionParameters('localhost', 5672, '/', credentials)

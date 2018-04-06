@@ -1,0 +1,1 @@
+{"jsonrpc":"2.0","method":"registerUsage","params":{"schemes":[{"in":true,"scheme":{"properties":{"random":{"type":"string"}},"type":"object"},"type":"json-schema"}],"usage":{"address":{"ex":"test","rk":"test.rk"},"check_url":"http://localhost:8881/contracts.json","name":"transfer"}},"id":1}
