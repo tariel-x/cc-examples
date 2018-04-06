@@ -1,0 +1,1 @@
+{"jsonrpc":"2.0","method":"resolve","params":{"schemes":[{"in":true,"scheme":{"properties":{"random":{"type":"string"}},"type":"object"},"type":"json-schema"}]},"id":1}

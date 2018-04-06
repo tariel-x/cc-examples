@@ -4,15 +4,15 @@ import json
 import time
 import pika
 
-scheme = {'properties':{'data':{'type':'string'},'time':{'type':'integer'}},'required':['data','time'],'type':'object'}
-query = {'jsonrpc':'2.0','method':'resolve','params':{'schemes':[{'in':True,'scheme':scheme,'type':'json-schema'}]},'id':1}
+f = open('require.json')
+query = f.read()
 
 reply = {
     'result': []
 }
 
 while len(reply['result']) == 0:
-    r = requests.post(sys.argv[1], data=json.dumps(query))
+    r = requests.post(sys.argv[1], data=query)
 
     reply = json.loads(r.content.decode("utf-8") )
     print(reply)

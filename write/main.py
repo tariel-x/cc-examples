@@ -1,16 +1,15 @@
 import requests
 import sys
-import json
-import time
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from io import BytesIO
 
 # Register service
 
-params = {"schemes":[{"in":True,"scheme":{'properties':{'random':{'type':'string'}},'type':'object'},"type":"json-schema"}],"service":{"name":"provider","address":{"endpoint": "http://localhost:8880"},"check_url":"http://localhost:8881/provider.json"}}
-query = {'jsonrpc':'2.0','method':'registerContract','params':params,'id':1}
-print(json.dumps(query))
-r = requests.post(sys.argv[1], data=json.dumps(query))
+f = open('require.json')
+query = f.read()
+
+print(query)
+r = requests.post(sys.argv[1], data=query)
 
 print(r.content)
 print("Register service")

@@ -4,15 +4,15 @@ import json
 import time
 import pika
 
-scheme = {'properties':{'random':{'type':'string'}},'type':'object'}
-query = {'jsonrpc':'2.0','method':'resolve','params':{'schemes':[{'in':True,'scheme':scheme,'type':'json-schema'}]},'id':1}
+f = open('require.json')
+query = f.read()
 
 reply = {
     'result': []
 }
 
 while len(reply['result']) == 0:
-    r = requests.post(sys.argv[1], data=json.dumps(query))
+    r = requests.post(sys.argv[1], data=query)
 
     reply = json.loads(r.content.decode("utf-8"))
     print(reply)
@@ -26,10 +26,10 @@ ep = reply['result'][0]['services'][0]['address']['endpoint']
 
 # Register service
 
-params = {"schemes":[{"in":True,"scheme":{"properties":{"data":{"type":"string"},"time":{"type":"integer"}},"type":"object"},"type":"json-schema"}],"service":{"name":"provider","address":{"rk":"test.rk","ex":"test"},"check_url":"http://localhost:8881/provider.json"}}
-query = {'jsonrpc':'2.0','method':'registerContract','params':params,'id':1}
+f = open('contract.json')
+query = f.read()
 print(json.dumps(query))
-r = requests.post(sys.argv[1], data=json.dumps(query))
+r = requests.post(sys.argv[1], data=query)
 
 print(r.content)
 print("Register service")
