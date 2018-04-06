@@ -5,7 +5,7 @@ from io import BytesIO
 
 # Register service
 
-f = open('require.json')
+f = open('contract.json')
 query = f.read()
 
 print(query)
