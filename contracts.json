@@ -17,17 +17,16 @@
                 "type": "json-schema"
             }
         ],
-        "services": [
-            {
-                "address": {
-                    "ex": "test",
-                    "rk": "test.rk"
-                },
-                "check_url": "http://localhost:8881/contracts.json",
-                "name": "provider"
-            }
-        ],
-        "usages": []
+        "service":
+        {
+            "address": {
+                "ex": "test",
+                "rk": "test.rk"
+            },
+            "check_url": "http://localhost:8881/contracts.json",
+            "name": "provider"
+        },
+        "usage": []
     },
     {
         "schemes": [
@@ -44,15 +43,13 @@
                 "type": "json-schema"
             }
         ],
-        "services": [
-            {
-                "address": {
-                    "endpoint": "http://localhost:8880"
-                },
-                "check_url": "http://localhost:8881/contracts.json",
-                "name": "provider"
-            }
-        ],
-        "usages": []
+        "service": {
+            "address": {
+                "endpoint": "http://localhost:8880"
+            },
+            "check_url": "http://localhost:8881/contracts.json",
+            "name": "provider"
+        },
+        "usage": []
     }
 ]
